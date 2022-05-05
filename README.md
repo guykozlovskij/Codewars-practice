@@ -1,3 +1,3 @@
 # CodeWarsPractice
 
-Document to practice CodeWars problems.
+Document for practicing and recording CodeWars problems.
