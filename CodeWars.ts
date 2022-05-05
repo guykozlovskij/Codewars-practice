@@ -50,3 +50,47 @@ function BetterDNAtoRNA(dna: string) {
 }
 // console.log(BetterDNAtoRNA("GCAT"))
 
+const greet: Function = () => "hello world!"
+// console.log(greet())
+
+function lovefunc(flower1: number, flower2: number): boolean {
+    //if flower1 is even
+    // && flower2 is odd
+    // return true
+    if((flower1 % 2 === 1 && flower2 % 2 === 0) && (flower2 % 2 === 1 && flower1 % 2 === 0)){
+       return true
+    } else {
+        return false
+    }
+}
+// console.log(lovefunc(1,4))
+
+function multiply(a: number,b: number): number {
+    return a * b
+}
+
+// console.log(multiply(2,5))
+
+function countSheeps(arrayOfSheep: (boolean | undefined | null)[]) {
+    let count = 0
+    arrayOfSheep.forEach( i=> {
+        if(i === true){count++}
+    })
+    console.log(count)
+}
+
+function betterCountSheep(arrayOfSheep: (boolean | undefined | null)[]){
+    return arrayOfSheep.filter(Boolean).length
+}
+
+let sheepArray = [
+    true,  true,  true,  false,
+    true,  true,  true,  true ,
+    true,  false, true,  false,
+    true,  false, false, true ,
+    true,  true,  true,  true ,
+    false, false, true,  true
+];
+
+// console.log(countSheeps(sheepArray))
+// console.log(betterCountSheep(sheepArray))
