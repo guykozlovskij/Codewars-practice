@@ -94,3 +94,16 @@ let sheepArray = [
 
 // console.log(countSheeps(sheepArray))
 // console.log(betterCountSheep(sheepArray))
+
+const check = (a: (number | string)[], x: number | string): boolean => {
+    const found = a.find(item => item === x)
+    return found === x
+}
+
+// console.log(check([80, 117, 115, 104, 45, 85, 112, 115], 'b'))
+
+export const digitize = (n: number): number[] => {
+    return Array.from(String(n), Number).reverse()
+};
+
+console.log(digitize(35231))
