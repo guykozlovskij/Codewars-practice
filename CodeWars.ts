@@ -41,7 +41,7 @@ export function BetterDNAtoRNA(dna: string) {
     return rna.join().replace(/,/g, '')
 }
 
-export function countSheeps(arrayOfSheep: (boolean | undefined | null)[]) {
+export function countSheep(arrayOfSheep: (boolean | undefined | null)[]) {
     let count = 0
     arrayOfSheep.forEach( i=> {
         if(i === true){count++}

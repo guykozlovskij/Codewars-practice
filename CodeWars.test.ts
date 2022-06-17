@@ -3,7 +3,7 @@ import {
     fakeBinary2,
     abbreviateName,
     DNAtoRNA,
-    BetterDNAtoRNA, countSheeps, betterCountSheep, check
+    BetterDNAtoRNA, countSheep, betterCountSheep, check
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -54,7 +54,7 @@ describe('DNAtoRNA', () => {
     });
 });
 
-describe('countSheeps', () => {
+describe('countSheep', () => {
     const sheepArray = [
         true,  true,  true,  false,
         true,  true,  true,  true ,
@@ -65,7 +65,7 @@ describe('countSheeps', () => {
     ];
 
     it('counts all true items in an array', () => {
-        expect(countSheeps(sheepArray)).to.equal(17);
+        expect(countSheep(sheepArray)).to.equal(17);
     });
 
     it('counts all true items in an array', () => {
