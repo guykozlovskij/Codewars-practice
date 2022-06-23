@@ -3,7 +3,7 @@ import {
     fakeBinary2,
     abbreviateName,
     DNAtoRNA,
-    BetterDNAtoRNA, countSheep, betterCountSheep, check
+    BetterDNAtoRNA, countSheep, betterCountSheep, check, squareSum, reverseWords, areYouPlayingBanjo
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -92,5 +92,26 @@ describe('check', () => {
 
     it('checks if any elements in an array match second element given as second argument', () => {
         expect(check([80, 117, 115, 104, 45, 85, 112, 115], '54')).to.equal(false);
+    });
+});
+
+describe("squareSum", function(){
+    it("Should return a number", () => {
+        expect(squareSum([1,2])).to.equal(5);
+        expect(squareSum([0, 3, 4, 5])).to.equal(50);
+        expect(squareSum([])).to.equal(0);
+    });
+});
+
+describe("reverseWords", function(){
+    it("reverses every word in a string", function() {
+        expect(reverseWords('This  is an example!')).to.equal('sihT  si na !elpmaxe');
+    });
+});
+
+describe('areYouPlayingBanjo', () => {
+    it('if name starts with R, you play banjo...', () => {
+        expect(areYouPlayingBanjo("Adam")).to.equal('Adam does not play banjo');
+        expect(areYouPlayingBanjo("rob")).to.equal('rob plays banjo');
     });
 });

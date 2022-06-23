@@ -57,3 +57,16 @@ export const check = (a: (number | string)[], x: number | string): boolean => {
     const found = a.find(item => item === x)
     return found === x
 }
+
+//reduce usage example
+export function squareSum(numbers: number[]): number {
+    return numbers.map(n => n * n).reduce((previous, current) => previous + current, 0);
+}
+
+export function reverseWords(str: string): string {
+    return Array.from(str).reverse().reduce((p,c) => p + c).split(' ').reverse().join(' ')
+}
+
+export function areYouPlayingBanjo(name: string): string {
+    return name.charAt(0) === 'r' || name.charAt(0) === 'R' ? name + " plays banjo" : name + " does not play banjo"
+}
