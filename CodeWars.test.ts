@@ -3,7 +3,15 @@ import {
     fakeBinary2,
     abbreviateName,
     DNAtoRNA,
-    BetterDNAtoRNA, countSheep, betterCountSheep, check, squareSum, reverseWords, areYouPlayingBanjo
+    BetterDNAtoRNA,
+    countSheep,
+    betterCountSheep,
+    check,
+    squareSum,
+    reverseWords,
+    areYouPlayingBanjo,
+    StringEndsWith, between, number,
+    isSquare, sayHello, findShort
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -113,5 +121,56 @@ describe('areYouPlayingBanjo', () => {
     it('if name starts with R, you play banjo...', () => {
         expect(areYouPlayingBanjo("Adam")).to.equal('Adam does not play banjo');
         expect(areYouPlayingBanjo("rob")).to.equal('rob plays banjo');
+    });
+});
+
+describe("StringEndsWith", function() {
+    it("Should return true if string ends with second arg, esle - false", function() {
+        expect(StringEndsWith('abcde', 'cde')).to.equal(true);
+        expect(StringEndsWith('abcde', 'abc')).to.equal(false);
+        expect(StringEndsWith('abc', '')).to.equal(true);
+    });
+});
+
+describe("between", () => {
+    it("returns an array with all numbers in between a and b, including a and b", () => {
+        expect(between(4, 12)).to.eql([4,5,6,7,8,9,10,11,12])
+    });
+});
+
+describe('number', () => {
+    it('basic tests', () => {
+        expect(number([[10,0],[3,5],[5,8]])).to.eql(5);
+        expect(number([[3,0],[9,1],[4,10],[12,2],[6,1],[7,10]])).to.eql(17);
+        expect(number([[3,0],[9,1],[4,8],[12,2],[6,1],[7,8]])).to.eql(21);
+        expect(number([[0,0]])).to.eql(0)
+    });
+});
+
+describe("solution", function() {
+    it("should work for some examples", function() {
+        expect(isSquare(-1)).to.be.false;
+        expect(isSquare( 0)).to.be.true;
+        expect(isSquare( 3)).to.be.false;
+        expect(isSquare( 4)).to.be.true;
+        expect(isSquare(25)).to.be.true;
+        expect(isSquare(26)).to.be.false;
+    });
+});
+
+describe("sayHello", () => {
+    it("Should pass basic tests", () => {
+        expect(sayHello('Mr. Spock')).to.eql('Hello, Mr. Spock');
+    });
+});
+
+describe("Sample Test Cases", function(){
+    it("Should return the length of the shortest word(s)", function() {
+        expect(findShort("bitcoin take over the world maybe who knows perhaps")).to.eql(3);
+        expect(findShort("turns out random test cases are easier than writing out basic ones")).to.eql(3);
+        expect(findShort("lets talk about javascript the best language")).to.eql(3);
+        expect(findShort("i want to travel the world writing code one day")).to.eql(1);
+        expect(findShort("Lets all go on holiday somewhere very cold")).to.eql(2);
+        expect(findShort("Let's travel abroad shall we")).to.eql(2);
     });
 });

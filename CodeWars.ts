@@ -70,3 +70,40 @@ export function reverseWords(str: string): string {
 export function areYouPlayingBanjo(name: string): string {
     return name.charAt(0) === 'r' || name.charAt(0) === 'R' ? name + " plays banjo" : name + " does not play banjo"
 }
+
+export function StringEndsWith(str: string, ending: string): Boolean {
+    if (ending === '') return true
+    return str.slice(-ending.length) === ending;
+}
+
+export function between(a: number, b: number): number[] {
+    let numberArray = []
+
+    for(a; a < b+1; a++){
+        numberArray.push(a)
+    }
+    return numberArray;
+}
+
+export function number(busStops: [number, number][]): number {
+    let passengers = 0;
+
+    busStops.map(arr => {
+        passengers = passengers + arr[0];
+        passengers = passengers - arr[1];
+    })
+    return passengers;
+}
+
+export function isSquare(n: number): boolean {
+    return Math.sqrt(n) * Math.sqrt(n) === n;
+}
+
+export const sayHello = (name: string) => `Hello, ${name}`;
+
+export function findShort(s: string): number {
+    const numbersArray = s.split(" ").map(word => {
+        return word.length;
+    })
+    return numbersArray.reduce((p, c) => p < c ? p : c);
+}
