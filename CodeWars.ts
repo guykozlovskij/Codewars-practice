@@ -107,3 +107,34 @@ export function findShort(s: string): number {
     })
     return numbersArray.reduce((p, c) => p < c ? p : c);
 }
+
+export const centuryFromYear = (year: number): number => {
+    const n = year/100;
+    return n % 1 === 0 ? n : Math.floor(n) + 1;
+};
+
+export class Kata {
+    static getCount(str: string): number {
+        // const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+        // let count = 0
+        //
+        // for (const c of str) {
+        //     if (vowels.has(c)) count++
+        // }
+        // return count
+
+        // const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+
+        return str.match(/[aeiou]/g)?.length || 0
+
+        // return Array.from(str).reduce((a, c) => vowels.has(c) ? ++a : a ,0)
+
+        // return [...str].filter(l => vowels.has(l)).length
+
+
+        // Array.from(str).map(l => {
+        //     if (vowels.has(l)) count ++
+        // });
+        // return count
+    }
+}

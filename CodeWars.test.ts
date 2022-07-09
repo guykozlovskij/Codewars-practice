@@ -11,7 +11,7 @@ import {
     reverseWords,
     areYouPlayingBanjo,
     StringEndsWith, between, number,
-    isSquare, sayHello, findShort
+    isSquare, sayHello, findShort, centuryFromYear, Kata
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -172,5 +172,48 @@ describe("Sample Test Cases", function(){
         expect(findShort("i want to travel the world writing code one day")).to.eql(1);
         expect(findShort("Lets all go on holiday somewhere very cold")).to.eql(2);
         expect(findShort("Let's travel abroad shall we")).to.eql(2);
+    });
+});
+
+describe("centuryFromYear", () => {
+    it("should return 18 when input is 1705", () => {
+        const expected = 18;
+        const actual = centuryFromYear(1705);
+
+        expect(actual).to.eql(expected);
+    });
+
+    it("should return 19 when input is 1900", () => {
+        const expected = 19;
+        const actual = centuryFromYear(1900);
+
+        expect(actual).to.eql(expected);
+    });
+
+    it("should return 17 when input is 1601", () => {
+        const expected = 17;
+        const actual = centuryFromYear(1601);
+
+        expect(actual).to.eql(expected);
+    });
+
+    it("should return 20 when input is 2000", () => {
+        const expected = 20;
+        const actual = centuryFromYear(2000);
+
+        expect(actual).to.eql(expected);
+    });
+
+    it("should return 15 when input is 1498", () => {
+        const expected = 15;
+        const actual = centuryFromYear(1498);
+
+        expect(actual).to.eql(expected);
+    });
+
+    describe("getCount", function(){
+        it ("should pass a sample test", function(){
+            expect(Kata.getCount("abracadabra")).to.eql(5)
+        });
     });
 });
