@@ -11,7 +11,7 @@ import {
     reverseWords,
     areYouPlayingBanjo,
     StringEndsWith, between, number,
-    isSquare, sayHello, findShort, centuryFromYear, Kata, parse
+    isSquare, sayHello, findShort, centuryFromYear, Kata
 } from "./CodeWars";
 import {expect} from "chai";
 
