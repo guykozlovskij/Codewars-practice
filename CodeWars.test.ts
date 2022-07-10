@@ -11,7 +11,7 @@ import {
     reverseWords,
     areYouPlayingBanjo,
     StringEndsWith, between, number,
-    isSquare, sayHello, findShort, centuryFromYear, Kata
+    isSquare, sayHello, findShort, centuryFromYear, Kata, parse
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -214,6 +214,13 @@ describe("centuryFromYear", () => {
     describe("getCount", function(){
         it ("should pass a sample test", function(){
             expect(Kata.getCount("abracadabra")).to.eql(5)
+        });
+    });
+
+    describe("deadFish", function() {
+        it("should parse string", function() {
+            expect(parse("iiisdoso")).to.eql([ 8, 64 ]);
+            expect(parse("iiisxxxdoso")).to.eql([ 8, 64 ]);
         });
     });
 });

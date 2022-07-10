@@ -138,3 +138,31 @@ export class Kata {
         // return count
     }
 }
+
+export function deadFish(data: string): number[] {
+    let numberArray = []
+    let count = 0
+
+    // for(const command of data) {
+    //
+    //     if (command === 'i') {
+    //         count++
+    //     } else if (command === 'd') {
+    //         count--
+    //     } else if (command === 's') {
+    //         count = Math.pow(count, 2)
+    //     } else if (command === 'o') {
+    //         numberArray.push(count)
+    //     }
+    // }
+
+    for(const command of data){
+        switch(command){
+            case 'i': count++; break
+            case 'd': count--; break
+            case 's': count = Math.pow(count, 2); break
+            case 'o': numberArray.push(count)
+        }
+    }
+    return numberArray
+}
