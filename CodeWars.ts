@@ -166,3 +166,43 @@ export function deadFish(data: string): number[] {
     }
     return numberArray
 }
+
+export const isPangram = (phrase: string): boolean => {
+    // const phraseSet =  new Set(Array.from(phrase.toLocaleLowerCase()));
+    // let bool = false
+    //
+    // if (phraseSet.has('a')
+    //     && phraseSet.has('b')
+    //     && phraseSet.has('c')
+    //     && phraseSet.has('d')
+    //     && phraseSet.has('e')
+    //     && phraseSet.has('f')
+    //     && phraseSet.has('g')
+    //     && phraseSet.has('h')
+    //     && phraseSet.has('i')
+    //     && phraseSet.has('j')
+    //     && phraseSet.has('k')
+    //     && phraseSet.has('l')
+    //     && phraseSet.has('m')
+    //     && phraseSet.has('n')
+    //     && phraseSet.has('o')
+    //     && phraseSet.has('p')
+    //     && phraseSet.has('q')
+    //     && phraseSet.has('r')
+    //     && phraseSet.has('s')
+    //     && phraseSet.has('t')
+    //     && phraseSet.has('u')
+    //     && phraseSet.has('v')
+    //     && phraseSet.has('w')
+    //     && phraseSet.has('x')
+    //     && phraseSet.has('y')
+    //     && phraseSet.has('z')
+    //
+    // ){
+    //     bool = true
+    // }
+    // return bool
+
+    const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    return alphabet.every(l => phrase.toLowerCase().includes(l))
+}

@@ -11,7 +11,7 @@ import {
     reverseWords,
     areYouPlayingBanjo,
     StringEndsWith, between, number,
-    isSquare, sayHello, findShort, centuryFromYear, Kata
+    isSquare, sayHello, findShort, centuryFromYear, Kata, deadFish, isPangram, G964
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -219,8 +219,16 @@ describe("centuryFromYear", () => {
 
     describe("deadFish", function() {
         it("should parse string", function() {
-            expect(parse("iiisdoso")).to.eql([ 8, 64 ]);
-            expect(parse("iiisxxxdoso")).to.eql([ 8, 64 ]);
+            expect(deadFish("iiisdoso")).to.eql([ 8, 64 ]);
+            expect(deadFish("iiisxxxdoso")).to.eql([ 8, 64 ]);
         });
     });
 });
+
+describe("example", function() {
+    it("test", function() {
+        expect(isPangram("The quick brown fox jumps over the lazy dog.")).to.eql(true);
+        expect(isPangram("This is not a pangram.")).to.eql(false);
+    });
+});
+
