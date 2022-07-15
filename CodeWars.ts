@@ -102,8 +102,8 @@ export function isSquare(n: number): boolean {
 export const sayHello = (name: string) => `Hello, ${name}`;
 
 export function findShort(s: string): number {
-    const numbersArray = s.split(" ").map(word => {
-        return word.length;
+        const numbersArray = s.split(" ").map(word => {
+            return word.length;
     })
     return numbersArray.reduce((p, c) => p < c ? p : c);
 }
@@ -205,4 +205,28 @@ export const isPangram = (phrase: string): boolean => {
 
     const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     return alphabet.every(l => phrase.toLowerCase().includes(l))
+}
+
+export const likes = (a : string[]) : string => {
+    let liked = ''
+    if(a.length === 0) { liked ='no one likes this'}
+    if(a.length === 1) { liked = `${a} likes this`}
+    if(a.length > 1 && a.length < 3) { liked = `${a[0]} and ${a[1]} like this`}
+    if(a.length > 2 && a.length < 4) { liked = `${a[0]}, ${a[1]} and ${a[2]} like this`}
+    if(a.length > 3) { liked = `${a[0]}, ${a[1]} and ${a.length-2} others like this`}
+    return liked
+}
+
+//TODO: solve w/Matt or Aks
+export function sumPairs(integers: number[], result: number): [number, number] {
+    return [1,1]
+}
+
+export function orderWeight(string: string): string {
+    function stringWeight(a: string) {
+        return Array.from(a).map(n => Number(n)).reduce((a, c) => a + c, 0);
+    }
+
+    const arrayOfStrings = string.split(" ").sort();
+    return arrayOfStrings.sort((a,b) => stringWeight(a) - stringWeight(b)).join(" ");
 }

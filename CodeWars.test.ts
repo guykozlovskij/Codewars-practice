@@ -11,7 +11,7 @@ import {
     reverseWords,
     areYouPlayingBanjo,
     StringEndsWith, between, number,
-    isSquare, sayHello, findShort, centuryFromYear, Kata, deadFish, isPangram, G964
+    isSquare, sayHello, findShort, centuryFromYear, Kata, deadFish, isPangram, likes, sumPairs, orderWeight
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -232,3 +232,65 @@ describe("example", function() {
     });
 });
 
+describe('likes', function() {
+    it('should return correct text', function() {
+        expect(likes([])).to.eql('no one likes this');
+    });
+    it('should return correct text', function() {
+        expect(likes(['Peter'])).to.eql('Peter likes this');
+    });
+    it('should return correct text', function() {
+        expect(likes(['Jacob', 'Alex'])).to.eql('Jacob and Alex like this');
+    });
+    it('should return correct text', function() {
+        expect(likes(['Max', 'John', 'Mark'])).to.eql('Max, John and Mark like this');
+    });
+    it('should return correct text', function() {
+        expect(likes(['Alex', 'Jacob', 'Mark', 'Max'])).to.eql('Alex, Jacob and 2 others like this');
+    });
+});
+
+describe("example", function() {
+    const l1: number[] = [1, 4, 8, 7, 3, 15],
+        l2: number[] = [1, -2, 3, 0, -6, 1],
+        l3: number[] = [20, -13, 40],
+        l4: number[] = [1, 2, 3, 4, 1, 0],
+        l5: number[] = [10, 5, 2, 3, 7, 5],
+        l6: number[] = [4, -2, 3, 3, 4],
+        l7: number[] = [0, 2, 0],
+        l8: number[] = [5, 9, 13, -3];
+
+    it("Basic: [" + l1 + "] should return [1, 7] for sum = 8", () => {
+        expect(sumPairs(l1, 8)).to.eql([1, 7]);
+    });
+    it("Negatives: ["+l2+"] should return [0, -6] for sum = -6", () => {
+        expect(sumPairs(l2, -6)).to.eql([0, -6]);
+    });
+    it("No Match: ["+l3+"] should return undefined for sum = -7", () => {
+        expect(sumPairs(l3, -7)).to.eql(undefined);
+    });
+    it("First Match From Left: ["+l4+"] should return [1, 1] for sum = 2 ", () => {
+        expect(sumPairs(l4, 2)).to.eql([1, 1]);
+    });
+    it("First Match From Left REDUX!: ["+l5+"] should return [3, 7] for sum = 10 ", () => {
+        expect(sumPairs(l5, 10)).to.eql([3, 7]);
+    });
+    it("Duplicates: ["+l6+"] should return [4, 4] for sum = 8", () => {
+        expect(sumPairs(l6, 8)).to.eql([4, 4]);
+    });
+    it("Zeroes: ["+l7+"] should return [0, 0] for sum = 0", () => {
+        expect(sumPairs(l7, 0)).to.eql([0, 0]);
+    });
+    it("Subtraction: ["+l8+"] should return [13, -3] for sum = 10", () => {
+        expect(sumPairs(l8, 10)).to.eql([13, -3]);
+    });
+});
+
+describe("orderWeight", function() {
+    it("sorts by weight lowest to highest (weight = the SUM of each number)", function() {
+        expect(orderWeight("103 123 4444 99 2000")).to.eql("2000 103 123 4444 99");
+    });
+    it("sorts by weight lowest to highest (weight = the SUM of each number)", function() {
+        expect(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123")).to.eql("11 11 2000 10003 22 123 1234000 44444444 9999");
+    });
+});
