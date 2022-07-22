@@ -1,3 +1,5 @@
+import qunit = Mocha.interfaces.qunit;
+
 export function fakeBinary(x: string){
     const stringToArray = x.split('')
     const newArray = stringToArray.map((number: any) => {
@@ -168,41 +170,6 @@ export function deadFish(data: string): number[] {
 }
 
 export const isPangram = (phrase: string): boolean => {
-    // const phraseSet =  new Set(Array.from(phrase.toLocaleLowerCase()));
-    // let bool = false
-    //
-    // if (phraseSet.has('a')
-    //     && phraseSet.has('b')
-    //     && phraseSet.has('c')
-    //     && phraseSet.has('d')
-    //     && phraseSet.has('e')
-    //     && phraseSet.has('f')
-    //     && phraseSet.has('g')
-    //     && phraseSet.has('h')
-    //     && phraseSet.has('i')
-    //     && phraseSet.has('j')
-    //     && phraseSet.has('k')
-    //     && phraseSet.has('l')
-    //     && phraseSet.has('m')
-    //     && phraseSet.has('n')
-    //     && phraseSet.has('o')
-    //     && phraseSet.has('p')
-    //     && phraseSet.has('q')
-    //     && phraseSet.has('r')
-    //     && phraseSet.has('s')
-    //     && phraseSet.has('t')
-    //     && phraseSet.has('u')
-    //     && phraseSet.has('v')
-    //     && phraseSet.has('w')
-    //     && phraseSet.has('x')
-    //     && phraseSet.has('y')
-    //     && phraseSet.has('z')
-    //
-    // ){
-    //     bool = true
-    // }
-    // return bool
-
     const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     return alphabet.every(l => phrase.toLowerCase().includes(l))
 }
@@ -217,7 +184,7 @@ export const likes = (a : string[]) : string => {
     return liked
 }
 
-//TODO: solve w/Matt or Aks
+//TODO: solve w/Matt
 export function sumPairs(integers: number[], result: number): [number, number] {
     return [1,1]
 }
@@ -238,7 +205,20 @@ export function orderWeightObj(string: string): string {
 
     const arrayOfStrings = string.split(" ").sort();
 
-    const objArray = arrayOfStrings.map(text => ({text, weight: getWeight(text)}))
-    const arraySortedByWeight = objArray.sort((a, b) => a.weight - b.weight)
-    return arraySortedByWeight.map(obj => obj.text).join(" ")
+    const objArray = arrayOfStrings.map(text => ({text, weight: getWeight(text)}));
+    const arraySortedByWeight = objArray.sort((a, b) => a.weight - b.weight);
+    return arraySortedByWeight.map(obj => obj.text).join(" ");
+}
+
+export const pigIt = (a : string) : string =>  {
+    const arrayOfStrings = a.split(' ');
+    const resultArr = arrayOfStrings.map(word => {
+        if((word === '?') || (word === '!') || (word === ',') || (word === '.')) return word;
+        if(word === '') return word;
+        const wordArray = Array.from(word)
+        const firstLetter = wordArray.shift();
+        const x = wordArray.push(firstLetter || '')
+        return `${wordArray.join("")}ay`
+    })
+    return resultArr.join(" ")
 }

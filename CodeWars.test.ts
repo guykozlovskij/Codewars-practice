@@ -23,7 +23,7 @@ import {
     likes,
     sumPairs,
     orderWeight,
-    orderWeightObj
+    orderWeightObj, pigIt
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -314,5 +314,14 @@ describe("orderWeightObj", function() {
     });
     it("sorts by weight lowest to highest (weight = the SUM of each number)", function() {
         expect(orderWeightObj("2000 10003 1234000 44444444 9999 11 11 22 123")).to.eql("11 11 2000 10003 22 123 1234000 44444444 9999");
+    });
+});
+
+describe("pigIt", () => {
+    it("test", () => {
+        expect(pigIt('Pig latin is cool')).to.eql('igPay atinlay siay oolcay');
+        expect(pigIt('This is my string')).to.eql('hisTay siay ymay tringsay');
+        expect(pigIt('This is my string ! , contains . other ? crap .')).to.eql('hisTay siay ymay tringsay ! , ontainscay . theroay ? rapcay .');
+        expect(pigIt('This is my string !  , contains .  other ? crap .')).to.eql('hisTay siay ymay tringsay !  , ontainscay .  theroay ? rapcay .');
     });
 });
