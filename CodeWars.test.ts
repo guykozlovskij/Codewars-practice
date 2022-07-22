@@ -10,8 +10,20 @@ import {
     squareSum,
     reverseWords,
     areYouPlayingBanjo,
-    StringEndsWith, between, number,
-    isSquare, sayHello, findShort, centuryFromYear, Kata, deadFish, isPangram, likes, sumPairs, orderWeight
+    StringEndsWith,
+    between,
+    number,
+    isSquare,
+    sayHello,
+    findShort,
+    centuryFromYear,
+    Kata,
+    deadFish,
+    isPangram,
+    likes,
+    sumPairs,
+    orderWeight,
+    orderWeightObj
 } from "./CodeWars";
 import {expect} from "chai";
 
@@ -251,7 +263,8 @@ describe('likes', function() {
 });
 
 describe("example", function() {
-    const l1: number[] = [1, 4, 8, 7, 3, 15],
+    const
+        l1: number[] = [1, 4, 8, 7, 3, 15],
         l2: number[] = [1, -2, 3, 0, -6, 1],
         l3: number[] = [20, -13, 40],
         l4: number[] = [1, 2, 3, 4, 1, 0],
@@ -292,5 +305,14 @@ describe("orderWeight", function() {
     });
     it("sorts by weight lowest to highest (weight = the SUM of each number)", function() {
         expect(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123")).to.eql("11 11 2000 10003 22 123 1234000 44444444 9999");
+    });
+});
+
+describe("orderWeightObj", function() {
+    it("sorts by weight lowest to highest (weight = the SUM of each number)", function() {
+        expect(orderWeightObj("103 123 4444 99 2000")).to.eql("2000 103 123 4444 99");
+    });
+    it("sorts by weight lowest to highest (weight = the SUM of each number)", function() {
+        expect(orderWeightObj("2000 10003 1234000 44444444 9999 11 11 22 123")).to.eql("11 11 2000 10003 22 123 1234000 44444444 9999");
     });
 });

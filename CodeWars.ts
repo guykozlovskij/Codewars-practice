@@ -228,5 +228,17 @@ export function orderWeight(string: string): string {
     }
 
     const arrayOfStrings = string.split(" ").sort();
-    return arrayOfStrings.sort((a,b) => stringWeight(a) - stringWeight(b)).join(" ");
+    return arrayOfStrings.sort((a, b) => stringWeight(a) - stringWeight(b)).join(" ");
+}
+
+export function orderWeightObj(string: string): string {
+    function getWeight(text: string) {
+        return Array.from(text).map(t => Number(t)).reduce((a, c) => a + c, 0);
+    }
+
+    const arrayOfStrings = string.split(" ").sort();
+
+    const objArray = arrayOfStrings.map(text => ({text, weight: getWeight(text)}))
+    const arraySortedByWeight = objArray.sort((a, b) => a.weight - b.weight)
+    return arraySortedByWeight.map(obj => obj.text).join(" ")
 }
