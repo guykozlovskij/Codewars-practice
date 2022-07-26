@@ -1,5 +1,3 @@
-import qunit = Mocha.interfaces.qunit;
-
 export function fakeBinary(x: string){
     const stringToArray = x.split('')
     const newArray = stringToArray.map((number: any) => {
@@ -21,7 +19,7 @@ export function fakeBinary2(x: any){
 }
 
 export function abbreviateName(name: string){
-    const [firstName, lastName] = name.split(" ")
+    const [firstName, lastName] = name.split(' ')
     return (`${firstName.charAt(0)}.${lastName.charAt(0)}`).toUpperCase()
 }
 
@@ -70,7 +68,7 @@ export function reverseWords(str: string): string {
 }
 
 export function areYouPlayingBanjo(name: string): string {
-    return name.charAt(0) === 'r' || name.charAt(0) === 'R' ? name + " plays banjo" : name + " does not play banjo"
+    return name.charAt(0) === 'r' || name.charAt(0) === 'R' ? name + ' plays banjo' : name + ' does not play banjo'
 }
 
 export function StringEndsWith(str: string, ending: string): Boolean {
@@ -104,7 +102,7 @@ export function isSquare(n: number): boolean {
 export const sayHello = (name: string) => `Hello, ${name}`;
 
 export function findShort(s: string): number {
-        const numbersArray = s.split(" ").map(word => {
+        const numbersArray = s.split(' ').map(word => {
             return word.length;
     })
     return numbersArray.reduce((p, c) => p < c ? p : c);
@@ -117,6 +115,8 @@ export const centuryFromYear = (year: number): number => {
 
 export class Kata {
     static getCount(str: string): number {
+        return str.match(/[aeiou]/g)?.length || 0
+
         // const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
         // let count = 0
         //
@@ -126,13 +126,9 @@ export class Kata {
         // return count
 
         // const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-
-        return str.match(/[aeiou]/g)?.length || 0
-
         // return Array.from(str).reduce((a, c) => vowels.has(c) ? ++a : a ,0)
 
         // return [...str].filter(l => vowels.has(l)).length
-
 
         // Array.from(str).map(l => {
         //     if (vowels.has(l)) count ++
@@ -194,8 +190,8 @@ export function orderWeight(string: string): string {
         return Array.from(a).map(n => Number(n)).reduce((a, c) => a + c, 0);
     }
 
-    const arrayOfStrings = string.split(" ").sort();
-    return arrayOfStrings.sort((a, b) => stringWeight(a) - stringWeight(b)).join(" ");
+    const arrayOfStrings = string.split(' ').sort();
+    return arrayOfStrings.sort((a, b) => stringWeight(a) - stringWeight(b)).join(' ');
 }
 
 export function orderWeightObj(string: string): string {
@@ -203,22 +199,37 @@ export function orderWeightObj(string: string): string {
         return Array.from(text).map(t => Number(t)).reduce((a, c) => a + c, 0);
     }
 
-    const arrayOfStrings = string.split(" ").sort();
+    const arrayOfStrings = string.split(' ').sort();
 
     const objArray = arrayOfStrings.map(text => ({text, weight: getWeight(text)}));
     const arraySortedByWeight = objArray.sort((a, b) => a.weight - b.weight);
-    return arraySortedByWeight.map(obj => obj.text).join(" ");
+    return arraySortedByWeight.map(obj => obj.text).join(' ');
 }
 
 export const pigIt = (a : string) : string =>  {
     const arrayOfStrings = a.split(' ');
+    const badSymbols = new Set(['?', '!', ',', '.', ''])
+
     const resultArr = arrayOfStrings.map(word => {
-        if((word === '?') || (word === '!') || (word === ',') || (word === '.')) return word;
-        if(word === '') return word;
+        if (badSymbols.has(word)) return word;
         const wordArray = Array.from(word)
         const firstLetter = wordArray.shift();
-        const x = wordArray.push(firstLetter || '')
-        return `${wordArray.join("")}ay`
+        wordArray.push(firstLetter || '');
+        return `${wordArray.join('')}ay`
     })
-    return resultArr.join(" ")
+    return resultArr.join(' ')
+}
+
+export function switchTest(arr: Array<any>) : Array<any> {
+    const returnArr = new Array()
+    for (const el of arr) {
+        switch (el) {
+            case 2 : returnArr.push(el * 2); break
+            case 4 : returnArr.push(el * 2); break
+            case 'a' : returnArr.push(el.toUpperCase()); break
+            case 'c' : returnArr.push(el.toUpperCase()); break
+            case 'e' : returnArr.push(el.toUpperCase());
+        }
+    }
+    return returnArr;
 }
